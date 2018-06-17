@@ -12,6 +12,7 @@
 		543B42A420D6BFEF000D822E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543B42A220D6BFEF000D822E /* Main.storyboard */; };
 		543B42A620D6BFF0000D822E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543B42A520D6BFF0000D822E /* Assets.xcassets */; };
 		543B42A920D6BFF0000D822E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543B42A720D6BFF0000D822E /* LaunchScreen.storyboard */; };
+		543B42B120D6D152000D822E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B42B020D6D152000D822E /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		543B42A520D6BFF0000D822E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		543B42A820D6BFF0000D822E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		543B42AA20D6BFF0000D822E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		543B42B020D6D152000D822E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,47 @@
 		543B429D20D6BFEF000D822E /* Todoey */ = {
 			isa = PBXGroup;
 			children = (
-				543B429E20D6BFEF000D822E /* AppDelegate.swift */,
-				543B42A020D6BFEF000D822E /* TodoListViewController.swift */,
-				543B42A220D6BFEF000D822E /* Main.storyboard */,
-				543B42A520D6BFF0000D822E /* Assets.xcassets */,
-				543B42A720D6BFF0000D822E /* LaunchScreen.storyboard */,
-				543B42AA20D6BFF0000D822E /* Info.plist */,
+				543B42B320D6D167000D822E /* Controllers */,
+				543B42B420D6D174000D822E /* Views */,
+				543B42B520D6D185000D822E /* Supporting Files */,
+				543B42B220D6D156000D822E /* Model */,
 			);
 			path = Todoey;
+			sourceTree = "<group>";
+		};
+		543B42B220D6D156000D822E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				543B42B020D6D152000D822E /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		543B42B320D6D167000D822E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				543B429E20D6BFEF000D822E /* AppDelegate.swift */,
+				543B42A020D6BFEF000D822E /* TodoListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		543B42B420D6D174000D822E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				543B42A220D6BFEF000D822E /* Main.storyboard */,
+				543B42A720D6BFF0000D822E /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		543B42B520D6D185000D822E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				543B42A520D6BFF0000D822E /* Assets.xcassets */,
+				543B42AA20D6BFF0000D822E /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				543B42A120D6BFEF000D822E /* TodoListViewController.swift in Sources */,
+				543B42B120D6D152000D822E /* Item.swift in Sources */,
 				543B429F20D6BFEF000D822E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JBWA7TF89;
-				INFOPLIST_FILE = Todoey/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Todoey/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JBWA7TF89;
-				INFOPLIST_FILE = Todoey/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Todoey/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
