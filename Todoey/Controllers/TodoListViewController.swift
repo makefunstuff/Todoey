@@ -96,7 +96,6 @@ class TodoListViewController: UITableViewController {
   }
   
   func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
-    let request : NSFetchRequest<Item> = Item.fetchRequest()
     do {
       itemArray = try context.fetch(request)
     } catch {
@@ -116,6 +115,14 @@ extension TodoListViewController : UISearchBarDelegate {
     request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
 
     loadItems(with: request)
-
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchBar.text?.count == 0 {
+      loadItems()
+      DispatchQueue.main.async {
+        searchBar.resignFirstResponder()
+      }
+    }
   }
 }
