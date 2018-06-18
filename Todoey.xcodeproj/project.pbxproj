@@ -13,6 +13,7 @@
 		543B42A620D6BFF0000D822E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 543B42A520D6BFF0000D822E /* Assets.xcassets */; };
 		543B42A920D6BFF0000D822E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543B42A720D6BFF0000D822E /* LaunchScreen.storyboard */; };
 		543B42B820D701B9000D822E /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 543B42B620D701B9000D822E /* DataModel.xcdatamodeld */; };
+		543B42DB20D84D5A000D822E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B42DA20D84D5A000D822E /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		543B42A820D6BFF0000D822E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		543B42AA20D6BFF0000D822E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		543B42B720D701B9000D822E /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		543B42DA20D84D5A000D822E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				543B429E20D6BFEF000D822E /* AppDelegate.swift */,
 				543B42A020D6BFEF000D822E /* TodoListViewController.swift */,
+				543B42DA20D84D5A000D822E /* CategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543B42DB20D84D5A000D822E /* CategoryViewController.swift in Sources */,
 				543B42A120D6BFEF000D822E /* TodoListViewController.swift in Sources */,
 				543B42B820D701B9000D822E /* DataModel.xcdatamodeld in Sources */,
 				543B429F20D6BFEF000D822E /* AppDelegate.swift in Sources */,
