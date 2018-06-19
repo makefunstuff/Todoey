@@ -8,10 +8,13 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
   let realm = try! Realm()
   var todoItems : Results<Item>?
+  
+  @IBOutlet weak var searchBar: UISearchBar!
   
   var selectedCategory : Category? {
     didSet {
@@ -23,6 +26,30 @@ class TodoListViewController: SwipeTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tableView.separatorStyle = .none
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if let colorHex = selectedCategory?.color {
+      guard let navBar = navigationController?.navigationBar else {
+        fatalError("Navigation controller does not exist")
+      }
+      title = selectedCategory!.name
+      let barTintColor: UIColor? = UIColor(hexString: colorHex)
+      navBar.barTintColor = barTintColor
+      searchBar.barTintColor = barTintColor
+      
+      navBar.tintColor = ContrastColorOf(barTintColor!, returnFlat: true)
+      navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: navBar.tintColor]
+    }
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    guard let originalColor = UIColor(hexString: "1D9BF6") else { fatalError() }
+    navigationController?.navigationBar.barTintColor = originalColor
+    navigationController?.navigationBar.tintColor = FlatWhite()
+    navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: FlatWhite()]
   }
   
   // MARK: - Tableview Datasource Methods
@@ -37,6 +64,12 @@ class TodoListViewController: SwipeTableViewController {
     
     if let item = todoItems?[indexPath.row] {
       cell.textLabel?.text = item.title
+      let percentage = CGFloat(indexPath.row) / CGFloat((todoItems?.count)!)
+      
+      if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: percentage) {
+        cell.backgroundColor = color
+        cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+      }
       
       cell.accessoryType = item.done ? .checkmark : .none
     } else {
