@@ -12,26 +12,27 @@ import SwipeCellKit
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tableView.rowHeight = 80
   }
   
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
     let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
       print("delete cell")
       
-//      if let categoryForDeletion = self.categories?[indexPath.row] {
-//        do {
-//          try self.realm.write {
-//            self.realm.delete(categoryForDeletion)
-//          }
-//        } catch {
-//          print("delete error")
-//        }
+      self.updateModel(at: indexPath)
       
-      }
-      
-      deleteAction.image = UIImage(named: "delete-icon")
-      return [deleteAction]
     }
+    
+    deleteAction.image = UIImage(named: "delete-icon")
+    
+    return [deleteAction]
+  }
+  
+  
+  func updateModel(at: IndexPath) {
+    print("Item deleted")
+  }
   
   func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
     var options = SwipeTableOptions()
@@ -46,6 +47,6 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     return cell
   }
-  
+
 }
 

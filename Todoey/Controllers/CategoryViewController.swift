@@ -18,8 +18,6 @@ class CategoryViewController: SwipeTableViewController {
     super.viewDidLoad()
     
     loadCategories()
-    
-    tableView.rowHeight = 80
   }
   
   // MARK: - TableView datasource methods
@@ -84,6 +82,19 @@ class CategoryViewController: SwipeTableViewController {
     
     if let indexPath = tableView.indexPathForSelectedRow {
       destinationVC.selectedCategory = categories?[indexPath.row]
+    }
+  }
+  
+  override func updateModel(at: IndexPath) {
+    if let categoryForDeletion = self.categories?[at.row] {
+      do {
+        try self.realm.write {
+          self.realm.delete(categoryForDeletion)
+        }
+      } catch {
+        print("delete error")
+      }
+      
     }
   }
 }
